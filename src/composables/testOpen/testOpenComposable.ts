@@ -20,7 +20,7 @@ export default function useTestOpen() {
     const isLoadingSendTest = ref(false);
     const isLoadingInitialData = ref(false);
     const isShowConfirmDialog = ref(false);
-    const meterValue = ref([{ label: 'Выполнено', value: 0, color: 'var(--meter-basic-filled)', icon: '' }]);
+    const meterValue = ref([{ label: 'Completed', value: 0, color: 'var(--meter-basic-filled)', icon: '' }]);
     const testData: Ref<null | Test | TestStudent | TestTeacher> = ref(null);
     const draftAnswers: Ref<{answer: any, questionId: number}[]> = ref([]);
     const durationComplete: Ref<number> = ref(0);

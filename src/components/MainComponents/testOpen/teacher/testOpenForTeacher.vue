@@ -33,7 +33,7 @@
                     <template #empty>
                         <span class="w-full flex align-items-center justify-content-center py-2 font-italic">No data available</span>
                     </template>
-                    <Column class="px-5 text-center" field="id" header="ID результата" style="width: 5%"></Column>
+                    <Column class="px-5 text-center" field="id" header="Result ID" style="width: 5%"></Column>
                     <Column class="text-center" field="userId" header="Student ID" style="width: 5%"></Column>
                     <Column class="text-center" field="testId" header="Test ID" style="width: 5%"></Column>
                     <Column class="text-center" field="isSuccess" header="Test passed" style="width: 8%">
@@ -68,7 +68,7 @@
                     </Column>
                     <Column class="text-center" field="duration" header="lead time" style="width: 10%">
                         <template #body="{ data }">
-                            <span>{{ computeMinutesByMs(data.duration) ?? 0 }} мин.</span>
+                            <span>{{ computeMinutesByMs(data.duration) ?? 0 }} min.</span>
                         </template>
                     </Column>
                     <Column class="text-center" field="createdAt" header="Completion date" style="width: 10%">

@@ -13,7 +13,7 @@
                 optionValue="id"
                 size="large"  
                 filter 
-                placeholder="Участники"
+                placeholder="Participants"
                 :loading="isLoadingStudents"
                 :maxSelectedLabels="3"
                 >
@@ -88,7 +88,7 @@ function handlerSaveParticipants(event: Event) {
     if(!selectedParticipants.value.length) {
         return confirm.require({
             target: event.currentTarget as undefined | HTMLElement,
-            message: 'Вы сможете назначить участников позже',
+            message: 'You can assign participants later',
             icon: 'pi pi-exclamation-triangle',
             accept: () => {
                 return emit('nextStep');

@@ -1,6 +1,6 @@
 <template>
-    <div class="relative h-full overflow-auto flex flex-column justify-content-center align-items-center py-6">
-        <div class="notice-nochecked-block w-20rem py-4 px-3 flex flex-column justify-content-center align-items-center">
+    <div class="relative h-full overflow-visible flex flex-column justify-content-center align-items-center py-6">
+        <div class="notice-nochecked-block w-25rem py-4 px-3 flex flex-column justify-content-center align-items-center">
             <span v-if="props.testData?.result?.isSuccess === true" class="flex flex-column align-items-center">
                 <i class="notice-nochecked-icon pi pi-check-circle"></i>
                 <h1 class="notice-nochecked-title font-light pb-3">Test passed</h1>

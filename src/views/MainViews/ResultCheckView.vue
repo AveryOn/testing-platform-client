@@ -39,8 +39,8 @@
                 <div class="mt-5 flex" style="width: 600px;">
                         <Dialog v-model:visible="isShowConfirmDialog" modal :header="'Are you sure you want to complete the test?'" :style="{ width: '38rem' }">
                             <div class="flex justify-content-end gap-2 pr-2">
-                                <Button type="button" label="Отмена" severity="secondary" text raised @click="isShowConfirmDialog = false"></Button>
-                                <Button type="button" label="Да" text raised @click="handlerConfirmCheckingTest"></Button>
+                                <Button type="button" label="Cancel" severity="secondary" text raised @click="isShowConfirmDialog = false"></Button>
+                                <Button type="button" label="Yes" text raised @click="handlerConfirmCheckingTest"></Button>
                             </div>
                         </Dialog>
                         <Button

@@ -41,7 +41,7 @@
                 <!-- Инфо о Времени выполнения теста -->
                 <span class="info-chunk flex flex-column align-items-center gap-2" v-tooltip.bottom="'lead time'">
                     <i class="pi pi-clock" style="font-size: 1.7rem;"></i>
-                    <span class="font-bold">{{ `${computeMinutesByMs(store.openResultStudent?.duration ?? 0)} мин.` }}</span>
+                    <span class="font-bold">{{ `${computeMinutesByMs(store.openResultStudent?.duration ?? 0)} min.` }}</span>
                 </span>
     
                 <!-- Инфо о кол-ве верных ответов -->

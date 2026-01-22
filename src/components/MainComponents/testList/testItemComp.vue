@@ -8,8 +8,8 @@
             <h2 class="test-item-title text-xl">
                 {{ props.testData.title }}
                 - {{ props.testData.id }}
-                <span class="font-light font-italic sign-nocheck" v-if="store.appRole === 'student' && props.testData.result?.isChecked === false">- Не проверено</span>
-                <span class="font-light font-italic sign-nocheck" v-if="store.appRole === 'student' && !props.testData.result">- Новый</span>
+                <span class="font-light font-italic sign-nocheck" v-if="store.appRole === 'student' && props.testData.result?.isChecked === false">- Not verified</span>
+                <span class="font-light font-italic sign-nocheck" v-if="store.appRole === 'student' && !props.testData.result">- New</span>
             </h2>
         </div>
 
@@ -18,7 +18,7 @@
             <span class="sign-icon mr-1">
                 <i class="pi pi-clock" style="font-size: var(--test-item-meta-size);"></i> 
             </span> 
-            <span class="meta-count mx-1" v-tooltip.bottom="'время выполнения'">{{ computeMinutesByMs(props.testData.result?.duration) }} мин.</span> 
+            <span class="meta-count mx-1" v-tooltip.bottom="'lead time'">{{ computeMinutesByMs(props.testData.result?.duration) }} min.</span> 
         </span>
 
         <!-- ИНФО о Кол-ве правильных ответов -->
@@ -26,7 +26,7 @@
             <span class="sign-icon mr-1">
                 <i class="pi pi-check-circle" style="font-size: var(--test-item-meta-size);"></i> 
             </span> 
-            <span class="meta-count mx-1" v-tooltip.bottom="'верных ответов'">{{ props.testData.result?.successCount }} / {{ props.testData.questionsCount }}</span> 
+            <span class="meta-count mx-1" v-tooltip.bottom="'correct answers'">{{ props.testData.result?.successCount }} / {{ props.testData.questionsCount }}</span> 
         </span>
         
         <!-- ИНФО об Кол-ве вопросов -->
@@ -34,7 +34,7 @@
             <span class="sign-icon mr-1">
                 <i class="pi pi-list-check" style="font-size: var(--test-item-meta-size);"></i> 
             </span> 
-            <span class="meta-count mx-1" v-tooltip.bottom="'кол-во вопросов'">{{ props.testData.questionsCount }}</span> 
+            <span class="meta-count mx-1" v-tooltip.bottom="'number of questions'">{{ props.testData.questionsCount }}</span> 
         </span>
 
         <!-- ИНФО об кол-ве выполнивших тест участниках -->
@@ -42,7 +42,7 @@
             <span class="sign-icon mr-1">
                 <i class="pi pi-user-edit" style="font-size: var(--test-item-meta-size);"></i>
             </span> 
-            <span class="meta-count mx-1" v-tooltip.bottom="'выполнили'">4 / 14</span> 
+            <span class="meta-count mx-1" v-tooltip.bottom="'completed'">4 / 14</span> 
         </span>
 
         <!-- ИНФО об участниках -->
@@ -50,7 +50,7 @@
             <span class="sign-icon mr-1">
                 <i class="pi pi-users" style="font-size: var(--test-item-meta-size);"></i>
             </span> 
-            <span class="meta-count mx-1" v-tooltip.bottom="'кол-во участников'">{{ props.testData.participantsCount }}</span> 
+            <span class="meta-count mx-1" v-tooltip.bottom="'number of participants'">{{ props.testData.participantsCount }}</span> 
         </span>
 
         <!-- ИНФО Группе -->

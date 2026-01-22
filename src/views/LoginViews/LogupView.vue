@@ -161,7 +161,7 @@ async function handlerConfirmForm(): Promise<void> {
             router.push({ name: 'login' }).then(() => window.location.reload());
         }
     } catch (err) {
-        toast.add({ severity: 'error', summary: 'Ошибка', detail: 'Failed to create account', life: 3000 });
+        toast.add({ severity: 'error', summary: 'Error', detail: 'Failed to create account', life: 3000 });
         console.error('/src/views/LoginViews/LogupView.vue: handlerConfirmForm => ', err);
         throw err;
     } finally {

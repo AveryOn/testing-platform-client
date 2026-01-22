@@ -7,7 +7,7 @@
 
         <!-- Блок отображается после нажатия на кнопку "Ответить". Здесь выводится ответ -->
         <div class="pt-2" v-show="hasAnswer === true">
-            <span>Ваш ответ:</span>
+            <span>Your Answer:</span>
             <div class="block-answer px-5 py-1 mt-2 mx-2" v-if="props.questionData.type === 'text'">{{ textField }}</div>
             <div class="block-answer px-5 py-1 mt-2 mx-2" v-if="props.questionData.type === 'radio'">{{ radioField }}</div>
             <div class="block-answer px-5 py-1 mt-2 mx-2" v-if="props.questionData.type === 'checkbox'">
@@ -23,7 +23,7 @@
         <!-- Блок для формы ответа (ОТЛИЧАЕТСЯ В ЗАВИСИМОСТИ ОТ ТИПА ВОПРОСА) -->
         <div class="pt-3" v-show="hasAnswer === false">
             <!-- TEXT -- Ответ -->
-            <Textarea v-if="props.questionData.type === 'text'" class="w-full" v-model="textField" placeholder="Ответ" rows="3" />
+            <Textarea v-if="props.questionData.type === 'text'" class="w-full" v-model="textField" placeholder="Answer" rows="3" />
 
             <!-- RADIO  --  Ответ -->
             <div v-if="props.questionData.type === 'radio'" class="pt-3 px-5 flex flex-column gap-4">
@@ -48,7 +48,7 @@
             <Button 
             v-show="!hasAnswer"
             class="" 
-            label="Ответить" 
+            label="Answer" 
             @click="handlerAnswer"
             text 
             raised 
@@ -59,7 +59,7 @@
             <Button 
             v-show="hasAnswer"
             class="" 
-            label="Изменить" 
+            label="Change" 
             @click="hasAnswer = false"
             text 
             raised 

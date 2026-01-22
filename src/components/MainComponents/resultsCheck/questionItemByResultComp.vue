@@ -7,7 +7,7 @@
 
         <!-- ВАРИАНТЫ ОТВЕТА -->
         <div v-if="props.questionData.type !== 'text'" class="">
-            <span class="">Варианты ответа:<span class="sign-qua-answers ml-3">({{ computeSignForVariantsAnswer }})</span></span>
+            <span class="">Answer options:<span class="sign-qua-answers ml-3">({{ computeSignForVariantsAnswer }})</span></span>
             <div class="w-full flex flex-column align-items-start pt-3 px-3">
                 <!-- CheckBox -->
                 <Tag 
@@ -30,7 +30,7 @@
 
         <!-- Здесь выводится ответ -->
         <div class="pt-2">
-            <span>Ответ:</span>
+            <span>Answer:</span>
             <div v-if="props.questionData.type === 'checkbox'" class="w-full flex flex-column align-items-start pt-3 px-3">
                 <Tag class="mb-2" v-if="props.questionData.type === 'checkbox'" :value="answer" v-for="answer in checkboxAnswers"></Tag>
             </div>
@@ -44,7 +44,7 @@
             <Button
             v-if="checkState !== null"
             class="ml-auto"
-            label="Изменить" 
+            label="Change" 
             text 
             raised 
             severity="warn"
@@ -57,14 +57,14 @@
             class="mark-result-answer px-3 py-2" 
             :class="(checkState === true)? 'success' : 'failed'"
             >
-                {{ (checkState === true)? 'Верно' : 'Не верно' }}
+                {{ (checkState === true)? 'True' : 'False' }}
             </span>
             <span v-else-if="store.openResultForCheck?.isChecked === true" class="mark-result-answer px-3 py-2" :class="computeClassMarkResultAnswer">{{ computeMarkResultAnswer }}</span>
 
             <!-- Кнопка  -  ВЕРНО -->
             <Button
             v-if="store.openResultForCheck?.isChecked !== true && checkState === null"
-            label="Верно" 
+            label="True" 
             text 
             raised 
             icon="pi pi-check" 
@@ -74,7 +74,7 @@
             <!-- Кнопка  -  НЕВЕРНО -->
             <Button
             v-if="store.openResultForCheck?.isChecked !== true && checkState === null"
-            label="Не верно" 
+            label="False" 
             text 
             raised 
             severity="warn" 
@@ -121,8 +121,8 @@ const computeClassMarkResultAnswer = computed(() => {
 const computeMarkResultAnswer = computed(() => {
     try {
         if(store.openResultForCheck?.isChecked === true) {
-            if(props.answerData.isCorrect === true) return 'Верно';
-            if(props.answerData.isCorrect === false) return 'Не верно';
+            if(props.answerData.isCorrect === true) return 'True';
+            if(props.answerData.isCorrect === false) return 'False';
         }
         return '';
     } catch (err) {
@@ -133,8 +133,8 @@ const computeMarkResultAnswer = computed(() => {
 
 const computeSignForVariantsAnswer = computed(() => {
     try {
-        if(props.questionData.type === 'checkbox') return 'Несколько вариантов';
-        if(props.questionData.type === 'radio') return 'Один вариант';
+        if(props.questionData.type === 'checkbox') return 'Several options';
+        if(props.questionData.type === 'radio') return 'One option';
     } catch (err) {
         console.error('/src/components/MainComponents/resultsCheck/questionItemByResultComp.vue: computed[computeSignForVariantsAnswer] => ', err);
         throw err;

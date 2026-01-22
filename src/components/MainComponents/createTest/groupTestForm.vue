@@ -24,7 +24,7 @@
                             icon="pi pi-plus" 
                             text
                             raised 
-                            label="Добавить"
+                            label="Add"
                             size="small" 
                             aria-label="Save" 
                             />

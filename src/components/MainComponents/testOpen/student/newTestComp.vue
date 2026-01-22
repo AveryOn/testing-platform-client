@@ -17,13 +17,13 @@
         <div class="mt-5 flex" style="width: 600px;">
             <Dialog v-model:visible="props.isShowConfirmDialog" modal :header="computeHeaderConfirmDialog" :style="{ width: '38rem' }">
                 <div class="flex justify-content-end gap-2 pr-2">
-                    <Button type="button" label="Отмена" severity="secondary" text raised @click="emit('closeConfirmDialog')"></Button>
-                    <Button type="button" label="Да" :loading="props.isLoadingSendTest" text raised @click="emit('confirmSendTest')"></Button>
+                    <Button type="button" label="Cancel" severity="secondary" text raised @click="emit('closeConfirmDialog')"></Button>
+                    <Button type="button" label="Yes" :loading="props.isLoadingSendTest" text raised @click="emit('confirmSendTest')"></Button>
                 </div>
             </Dialog>
             <Button
             class="ml-auto"
-            label="Завершить" 
+            label="Finish" 
             text 
             raised 
             icon="pi pi-upload"

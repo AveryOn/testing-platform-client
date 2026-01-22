@@ -36,7 +36,7 @@
                 @update:model-value="isInvalidPassword = false"
                 />
                 <InputGroupAddon>
-                    <i class="pi pi-question-circle light-text cursor-pointer" v-tooltip.right="'мин. 6 символов'"></i>
+                    <i class="pi pi-question-circle light-text cursor-pointer" v-tooltip.right="'min. 6 characters'"></i>
                 </InputGroupAddon>
             </InputGroup>
             <!-- CONFIRM BUTTON -->
@@ -121,7 +121,7 @@ async function handlerConfirmForm(): Promise<void> {
             }
         }
     } catch (err) {
-        toast.add({ severity: 'error', summary: 'Ошибка', detail: 'Failed to log in to the system', life: 3000 });
+        toast.add({ severity: 'error', summary: 'Error', detail: 'Failed to log in to the system', life: 3000 });
         console.error('/src/views/LoginViews/LoginView.vue: handlerConfirmForm => ', err);
         throw err;
     } finally {

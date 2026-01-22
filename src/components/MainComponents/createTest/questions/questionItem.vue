@@ -2,19 +2,19 @@
     <div class="relative question-block w-30rem flex flex-column align-items-center pt-3 pb-5 my-3">
         <Badge class="question-number" :value="formQuestion.number"></Badge>
 
-        <h2 class="mb-3">Введите вопрос</h2>
+        <h2 class="mb-3">Enter your question</h2>
         <div class="w-full flex flex-column align-items-center">
             <Textarea 
             v-model="formQuestion.question"
             @update:modelValue="handlerUpdateQuestionQuery"
             class="input w-10" 
             rows="3" cols="50" 
-            placeholder="Вопрос" 
+            placeholder="Question" 
             style="resize: vertical" 
             />
         </div>
 
-        <h2 class="my-3">Укажите тип ответа</h2>
+        <h2 class="my-3">Specify the answer type</h2>
         <div class="w-full flex flex-column align-items-center">
             <Select 
             class="input w-10" 
@@ -30,7 +30,7 @@
 
         <!-- ЕСЛИ тип radio -->
         <div v-show="formQuestion.type === 'radio'" class="answers-block w-full">
-            <h2 class="mt-3 mb-2">Введите варианты ответа</h2>
+            <h2 class="mt-3 mb-2">Enter answer options</h2>
             <div class="w-full flex flex-column align-items-center">
                 <div class="w-10 gap-1 flex flex-wrap align-items-center justify-content-center">
                     <Chip 
@@ -44,7 +44,7 @@
                     />
                 </div>
                 <div class="w-10 mt-2 flex align-items-center gap-2">
-                    <InputText class="input w-full" v-model="radioAnswer" type="text" placeholder="Вариант ответа" />
+                    <InputText class="input w-full" v-model="radioAnswer" type="text" placeholder="Answer option" />
                     <Button
                     class="ml-auto"
                     icon="pi pi-plus" 
@@ -57,7 +57,7 @@
 
         <!-- ЕСЛИ тип checkbox -->
         <div  v-show="formQuestion.type === 'checkbox'" class="answers-block w-full">
-            <h2 class="mt-3 mb-2">Введите варианты ответа</h2>
+            <h2 class="mt-3 mb-2">Enter answer options</h2>
             <div class="w-full flex flex-column align-items-center">
                 <div class="w-10 gap-1 flex flex-wrap align-items-center justify-content-center">
                     <Chip 
@@ -71,7 +71,7 @@
                     />
                 </div>
                 <div class="w-10 mt-2 flex align-items-center gap-2">
-                    <InputText class="input w-full" v-model="checkboxAnswer" type="text" placeholder="Вариант ответа" />
+                    <InputText class="input w-full" v-model="checkboxAnswer" type="text" placeholder="Answer option" />
                     <Button
                     class="ml-auto"
                     icon="pi pi-plus" 
@@ -107,9 +107,9 @@ const formQuestion: Ref<Question> = ref({
     type: 'text' as QuestionTypes,
 })
 const types: Ref<{label: string, value: QuestionTypes}[]> = ref([
-    { label: 'Текст', value: 'text' },
-    { label: 'Несколько вариантов', value: 'checkbox' },
-    { label: 'Только один варинт', value: 'radio' },
+    { label: 'Text', value: 'text' },
+    { label: 'Several options', value: 'checkbox' },
+    { label: 'Only one option', value: 'radio' },
 ]);
 
 
