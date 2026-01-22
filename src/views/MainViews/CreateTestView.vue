@@ -4,10 +4,10 @@
     >
 
         <!-- ЗАГОЛОВОК -->
-        <h1 class="viewer-header">Тесты <span class="nest-piece">></span> Новый тест</h1>
+        <h1 class="viewer-header">Tests <span class="nest-piece">></span> New test</h1>
 
         <!-- КОНТЕНТНАЯ ЧАСТЬ -->
-        <section class="relative h-full w-full overflow-auto flexflex-column align-items-center">
+        <section class="relative h-full w-full overflow-auto flex-column align-items-center">
 
             <!-- TIME LINE -->
             <div 
@@ -104,11 +104,11 @@ const router = useRouter();
 const currentStep = ref(1);
 const questions: Ref<Question[]> = ref([]);
 const steps = ref([
-    { id: 1, step: 'Название', isComplete: false, isError: false },
-    { id: 2, step: 'Описание', isComplete: false, isError: false },
-    { id: 3, step: 'Группа', isComplete: false, isError: false },
-    { id: 4, step: 'Участники', isComplete: false, isError: false },
-    { id: 5, step: 'Вопросы', isComplete: false, isError: false },
+    { id: 1, step: 'Title', isComplete: false, isError: false },
+    { id: 2, step: 'Description', isComplete: false, isError: false },
+    { id: 3, step: 'Group', isComplete: false, isError: false },
+    { id: 4, step: 'Participants', isComplete: false, isError: false },
+    { id: 5, step: 'Questions', isComplete: false, isError: false },
 ]);
 const forms = ref([
     { id: 1, label: 'title' },

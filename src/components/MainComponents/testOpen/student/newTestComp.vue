@@ -63,8 +63,8 @@ const emit = defineEmits({
 
 // #########################################   COMPUTED   #########################################
 const computeHeaderConfirmDialog = computed(() => {
-    if(props.meterValue[0].value < 100) return 'Вы ответили не на все вопросы. Завершить тест?';
-    return 'Вы уверены, что хотите завершить тест?';
+    if(props.meterValue[0].value < 100) return 'You haven\'t answered all the questions. Finish the test?';
+    return 'Are you sure you want to complete the test?';
 })
 
 </script>

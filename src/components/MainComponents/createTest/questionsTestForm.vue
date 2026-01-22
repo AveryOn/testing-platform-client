@@ -3,10 +3,10 @@
     class="relative overflow-auto flex flex-column align-items-center justify-content-start py-6" 
     style="height: 100% !important;"
     >
-        <Dialog v-model:visible="isShowConfirmDialog" modal :header="'Завершить создание теста?'" :style="{ width: '30rem' }">
+        <Dialog v-model:visible="isShowConfirmDialog" modal :header="'Finish creating the test?'" :style="{ width: '30rem' }">
             <div class="flex justify-content-end gap-2 pr-2">
-                <Button type="button" label="Отмена" severity="secondary" text raised @click="isShowConfirmDialog = false"></Button>
-                <Button type="button" label="Да" text raised @click="handlerConfirmCreateTest"></Button>
+                <Button type="button" label="Cancel" severity="secondary" text raised @click="isShowConfirmDialog = false"></Button>
+                <Button type="button" label="Yes" text raised @click="handlerConfirmCreateTest"></Button>
             </div>
         </Dialog>
 
@@ -14,10 +14,10 @@
             class="w-full h-full flex flex-column align-items-center gap-3 justify-content-center"
             v-if="!props.questions.length"
             >
-                <h1 class="light-text">Начните добавлять вопросы</h1>
+                <h1 class="light-text">Start adding questions</h1>
                 <div class="w-max">
                     <Button 
-                    label="Создать" 
+                    label="Create" 
                     icon="pi pi-plus" 
                     text raised 
                     iconPos="top"
@@ -34,7 +34,7 @@
         <Button
         class="mt-auto"
         v-show="props.questions.length"
-        label="Добавить" 
+        label="Add" 
         icon="pi pi-plus" 
         text raised 
         @click="handlerAppendNewQuestion"
@@ -44,7 +44,7 @@
         <Button
         class="w-4 mt-5 mb-2"
         v-show="props.questions.length"
-        label="Создать тест" 
+        label="Create a test" 
         icon="pi pi-folder-plus" 
         raised 
         :loading="props.isLoadingCreate"

@@ -1,13 +1,13 @@
 <template>
     <div class="relative h-full overflow-hidden flex flex-column align-items-center justify-content-center">
         <form class="flex flex-column align-items-center" @submit.prevent>
-            <h2 class="light-text mb-4">Придумайте название для теста <span class="required-text">*</span></h2>
+            <h2 class="light-text mb-4">Come up with a name for the test <span class="required-text">*</span></h2>
             <div class="flex align-items-center gap-2 p-1">
                 <InputText 
                 class="input" 
                 type="text" 
                 size="large" 
-                placeholder="Название" 
+                placeholder="Title" 
                 v-model="testName"
                 @update:model-value="(value) => handlerUpdateTestName(value)"
                 />

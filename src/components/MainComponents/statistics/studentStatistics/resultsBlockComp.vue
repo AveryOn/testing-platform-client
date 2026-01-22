@@ -2,7 +2,7 @@
     <div class="statistic-block w-full h-max flex flex-column align-items-center py-3 mt-3">
 
         <!-- Заголовок -->
-        <h2 class="font-light mb-3 w-full" style="font-size: 1.3rem;">Сводка результатов по тесту -<span class="font-normal font-italic ml-1">{{ props.testName }}</span></h2>
+        <h2 class="font-light mb-3 w-full" style="font-size: 1.3rem;">Summary of test results -<span class="font-normal font-italic ml-1">{{ props.testName }}</span></h2>
 
         <!-- Фильтр панель -->
         <div class="w-full flex align-items-center justify-content-start gap-2 mb-3">
@@ -12,7 +12,7 @@
             dateFormat="dd/mm/yy" 
             showIcon 
             iconDisplay="input" 
-            :placeholder="'Дата (От)'"
+            :placeholder="'Date (From)'"
             @date-select="(date: Date) => requestFilter('from-date', date)"
             @update:modelValue="(value) => value ?? (minDateForTo = undefined)"
             />
@@ -25,7 +25,7 @@
             v-model="toDate" 
             dateFormat="dd/mm/yy" 
             showIcon 
-            :placeholder="'Дата (До)'"
+            :placeholder="'Date (To)'"
             iconDisplay="input" 
             :minDate="minDateForTo"
             />
@@ -36,13 +36,13 @@
             :options="statusOptionsFilter" 
             optionLabel="label"
             optionValue="value" 
-            placeholder="Статус результатов" 
+            placeholder="Results status" 
             />
         </div>
 
         <!-- Подзаголовок -->
         <h3 class="light-text w-full mb-3 pb-1 cursor-auto text-lg" style="border-bottom:1px dotted var(--basic-border-color); user-select: none">
-            Результаты
+            Results
         </h3>
 
         <!-- Спиннер загрузки данных -->
@@ -58,7 +58,7 @@
         <!-- Отрисовка результатов -->
         <ul v-else class="w-full">
 
-            <h3 class="light-text w-max mx-auto" v-show="!store.statisticsResultsStudents.length">Результатов для данного теста пока еще нет</h3>
+            <h3 class="light-text w-max mx-auto" v-show="!store.statisticsResultsStudents.length">There are no results for this test yet.</h3>
 
             <li 
             class="result-list-item w-full flex align-items-center justify-content-start px-3 py-2 shadow-2 gap-3" 
@@ -101,8 +101,8 @@ const toDate = ref();
 const minDateForTo = ref();
 const selectedStatusFilter = ref(null);
 const statusOptionsFilter = ref([    
-    { value: true, label: 'Успешные результаты' }, 
-    { value: false, label: 'Неудачные результаты' },
+    { value: true, label: 'Successful results' }, 
+    { value: false, label: 'Unsuccessful results' },
 ])
 
 // Вычисление классов success и failed для результатов
@@ -122,7 +122,7 @@ const computeClassResult = computed(() => {
 // Вычисление состояния результата (Выполнен / Провален)
 const computeStateSignResult = computed(() => {
     return (isSuccess: boolean | null) => {
-        return (isSuccess) ? 'Тест пройден' : 'Тест провален';
+        return (isSuccess) ? 'Test passed' : 'The test failed.';
     }
 });
 

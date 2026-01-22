@@ -3,7 +3,7 @@
         <div class="notice-nochecked-block min-w-20rem w-max py-4 px-4 flex flex-column justify-content-center align-items-center">
             <span class="flex flex-column align-items-center">
                 <i class="notice-nochecked-icon nocheck pi pi-hourglass mt-1 mb-3"></i>
-                <h1 class="notice-nochecked-title font-light pb-3">Тест ожидает проверки</h1>
+                <h1 class="notice-nochecked-title font-light pb-3">The test is awaiting review</h1>
             </span>
             <div class="flex flex-column align-content-center pt-3 px-3">
                 <span class="font-light text-center"></span>

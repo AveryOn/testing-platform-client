@@ -2,7 +2,7 @@
     <div class="w-full h-full overflow-hidden flex flex-column align-items-stretch">
         <!-- ЗАГОЛОВОК -->
         <h1 class="viewer-header">
-            Тесты <span class="nest-piece">></span> 
+            Tests <span class="nest-piece">></span> 
             {{ props.testData?.title }}
         </h1>
 

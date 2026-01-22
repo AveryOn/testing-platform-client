@@ -21,7 +21,7 @@
             v-model="formQuestion.type" 
             :options="types"
             size="large" 
-            placeholder="Группа"
+            placeholder="Group"
             :optionLabel="'label'"
             :optionValue="'value'"
             @change="(event) => handlerSelectType(event)"

@@ -1,7 +1,7 @@
 <template>
     <div class="relative h-full overflow-hidden flex flex-column align-items-center justify-content-center py-4">
         <form class="flex flex-column align-items-center" @submit.prevent>
-            <h2 class="light-text mb-4">Выберите участников, которым будет назначен данный тест</h2>
+            <h2 class="light-text mb-4">Select the participants to whom this test will be assigned</h2>
             <div class="flex align-items-center gap-2 p-1">
                 <MultiSelect 
                 class="input w-20rem" 
@@ -18,7 +18,7 @@
                 :maxSelectedLabels="3"
                 >
                     <template #empty>
-                            <p class="light-text font-italic">Участников нет</p>
+                            <p class="light-text font-italic">There are no participants</p>
                             
                         </template>
                 </MultiSelect>
@@ -27,7 +27,7 @@
                         <div class="rounded px-4 py-2">
                             <span>{{ message.message }}</span>
                             <div class="flex justify-content-end gap-2 mt-2">
-                                <Button label="Хорошо" @click="acceptCallback" text raised size="small"></Button>
+                                <Button label="Great" @click="acceptCallback" text raised size="small"></Button>
                             </div>
                         </div>
                     </template>

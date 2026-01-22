@@ -3,8 +3,8 @@
     <div  class="w-full h-full overflow-hidden flex flex-column align-items-stretch">
         <!-- ЗАГОЛОВОК -->
         <h1 class="viewer-header">
-            Тесты <span class="nest-piece">></span> 
-            {{ props.testData?.title }} <span class="nest-piece">></span> Результаты
+            Tests <span class="nest-piece">></span> 
+            {{ props.testData?.title }} <span class="nest-piece">></span> Results
         </h1>
 
         <!-- Окно значка закгрузки данных -->
@@ -31,19 +31,19 @@
                 @row-click="(event: any) => emit('handlerOpenResultForCheck', event.data)"
                 >
                     <template #empty>
-                        <span class="w-full flex align-items-center justify-content-center py-2 font-italic">Данные отсутствуют</span>
+                        <span class="w-full flex align-items-center justify-content-center py-2 font-italic">No data available</span>
                     </template>
                     <Column class="px-5 text-center" field="id" header="ID результата" style="width: 5%"></Column>
-                    <Column class="text-center" field="userId" header="ID ученика" style="width: 5%"></Column>
-                    <Column class="text-center" field="testId" header="ID теста" style="width: 5%"></Column>
-                    <Column class="text-center" field="isSuccess" header="Тест пройден" style="width: 8%">
+                    <Column class="text-center" field="userId" header="Student ID" style="width: 5%"></Column>
+                    <Column class="text-center" field="testId" header="Test ID" style="width: 5%"></Column>
+                    <Column class="text-center" field="isSuccess" header="Test passed" style="width: 8%">
                         <template #body="{ data }">
                             <span v-if="data.isChecked === false"><i class="warn-fg pi pi-hourglass font-bold" style="font-size: 1.2rem"></i></span>
                             <span v-else-if="data.isSuccess"><i class="success-fg pi pi-verified" style="font-size: 1.2rem"></i></span>
                             <span v-else-if="!data.isSuccess"><i class="failed-fg pi pi-times" style="font-size: 1.2rem"></i></span>
                         </template>
                     </Column>
-                    <Column class="text-center" field="successCount" header="Кол-во правильных ответов" style="width: 10%">
+                    <Column class="text-center" field="successCount" header="Number of correct answers" style="width: 10%">
                         <template #body="{ data }">
                             <span>
                                 <Tag class="relative" style="min-width: 2rem;">
@@ -54,24 +54,24 @@
                             </span>
                         </template>
                     </Column>
-                    <Column class="text-center" field="isChecked" header="Проверено" style="width: 10%">
+                    <Column class="text-center" field="isChecked" header="Verified" style="width: 10%">
                         <template #body="{ data }">
                             <span v-if="data.isChecked === true"><i class="success-fg pi pi-check" style="font-size: 1.2rem"></i></span>
                             <span v-else-if="data.isChecked === false"><i class="failed-fg pi pi-times" style="font-size: 1.2rem"></i></span>
                         </template>
                     </Column>
-                    <Column class="text-center" field="checkDate" header="Дата проверки" style="width: 10%">
+                    <Column class="text-center" field="checkDate" header="Date of inspection" style="width: 10%">
                         <template #body="{ data }">
                             <span v-if="data.checkDate">{{ formattedDateByTemplate(data.checkDate) }}</span>
                             <span v-else class="font-bold text-xl">-</span>
                         </template>
                     </Column>
-                    <Column class="text-center" field="duration" header="Время выполнения" style="width: 10%">
+                    <Column class="text-center" field="duration" header="lead time" style="width: 10%">
                         <template #body="{ data }">
                             <span>{{ computeMinutesByMs(data.duration) ?? 0 }} мин.</span>
                         </template>
                     </Column>
-                    <Column class="text-center" field="createdAt" header="Дата выполнения" style="width: 10%">
+                    <Column class="text-center" field="createdAt" header="Completion date" style="width: 10%">
                         <template #body="{ data }">
                             <span>{{ formattedDateByTemplate(data.createdAt) }}</span>
                         </template>

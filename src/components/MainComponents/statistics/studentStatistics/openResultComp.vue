@@ -18,7 +18,7 @@
             class="result-header w-full flex align-items-center justify-content-center mb-3 px-2"
             :class="computeClasses"
             >
-                <h2 class="font-light mr-auto" style="font-size: 1.3rem;">Результат по тесту -<span class="font-normal font-italic ml-1">{{ store.openResultStudent?.test.title }}</span></h2>
+                <h2 class="font-light mr-auto" style="font-size: 1.3rem;">Test result -<span class="font-normal font-italic ml-1">{{ store.openResultStudent?.test.title }}</span></h2>
                 <span class="light-text mr-4">{{ `( ${fromNow(store.openResultStudent?.createdAt)} )` }}</span>
                 <span>{{ formattedDateByTemplate(store.openResultStudent?.createdAt) }}</span>
             </div>
@@ -27,31 +27,31 @@
             <div class="info-panel w-full flex align-items-center justify-content-center gap-3 pb-3">
     
                 <!-- Инфо о Дате проверки -->
-                <span class="info-chunk flex flex-column align-items-center gap-2" v-tooltip.bottom="'Проверено'">
+                <span class="info-chunk flex flex-column align-items-center gap-2" v-tooltip.bottom="'Verified'">
                     <i class="pi pi-calendar-times" style="font-size: 1.7rem;"></i>
                     <span class="font-bold">{{  formattedDateByTemplate(store.openResultStudent?.checkDate)  }}</span>
                 </span>
     
                 <!-- Инфо о Проценте выполнения теста -->
-                <span class="info-chunk flex flex-column align-items-center gap-2" v-tooltip.bottom="'Процент выполнения'">
+                <span class="info-chunk flex flex-column align-items-center gap-2" v-tooltip.bottom="'Percentage of completion'">
                     <i class="pi pi-percentage" style="font-size: 1.7rem;"></i>
                     <span class="font-bold">{{ computeFilledPercent(store.openResultStudent?.successCount!, store.openResultStudent?.questionsCount!) }}</span>
                 </span>
 
                 <!-- Инфо о Времени выполнения теста -->
-                <span class="info-chunk flex flex-column align-items-center gap-2" v-tooltip.bottom="'Время выполнения'">
+                <span class="info-chunk flex flex-column align-items-center gap-2" v-tooltip.bottom="'lead time'">
                     <i class="pi pi-clock" style="font-size: 1.7rem;"></i>
                     <span class="font-bold">{{ `${computeMinutesByMs(store.openResultStudent?.duration ?? 0)} мин.` }}</span>
                 </span>
     
                 <!-- Инфо о кол-ве верных ответов -->
-                <span class="info-chunk flex flex-column align-items-center gap-2" v-tooltip.bottom="'Верных ответов'">
+                <span class="info-chunk flex flex-column align-items-center gap-2" v-tooltip.bottom="'Correct answers'">
                     <i class="pi pi-list-check" style="font-size: 1.7rem;"></i>
                     <span class="font-bold">{{ `${store.openResultStudent?.successCount} / ${store.openResultStudent?.questionsCount}` }}</span>
                 </span>
     
                 <!-- Инфо о названии группы -->
-                <span class="info-chunk flex flex-column align-items-center gap-2" v-tooltip.bottom="'Группа'">
+                <span class="info-chunk flex flex-column align-items-center gap-2" v-tooltip.bottom="'Group'">
                     <i class="pi pi-bookmark" style="font-size: 1.7rem;"></i>
                     <span class="w-full font-bold white-space-nowrap overflow-hidden text-overflow-ellipsis">
                         {{ store.openResultStudent?.test.group.title }}
@@ -91,7 +91,7 @@
 
                     <!-- Ответ на вопрос -->
                     <div class="w-full flex flex-column mt-2 mx-3">
-                        <span class="light-text mb-2">Ваш ответ:</span>
+                        <span class="light-text mb-2">Your Answer:</span>
 
                         <!-- Checkbox ОТВЕТ -->
                         <div class="flex gap-1 flex-wrap" v-if="question.type === 'checkbox'" >
@@ -114,7 +114,7 @@
                     class="state-question mx-auto w-full text-center"
                     :class="(computeStateAnswer(question.id).answer?.isCorrect)? 'success' : 'failed'"
                     >
-                        {{ computeStateAnswer(question.id).isCorrect? 'Верно' : 'Не верно' }}
+                        {{ computeStateAnswer(question.id).isCorrect? 'True' : 'Not true' }}
                     </span>
                 </div>
             </div>
@@ -174,8 +174,8 @@ const computeStateAnswer = computed(() => {
 const computeSignTypeAnswer = computed(() => {
     return (type: QuestionTypes) => {
         try {
-            if(type === 'checkbox') return 'Несколько вариантов ответа';
-            else if(type === 'radio') return 'Один вариант ответа';
+            if(type === 'checkbox') return 'Multiple answer options';
+            else if(type === 'radio') return 'One answer option';
             else return '';
         } catch (err) {
             console.error('/src/components/MainComponents/statistics/studentStatistics/openResultComp.vue: computed[computeSignTypeAnswer] => ', err);

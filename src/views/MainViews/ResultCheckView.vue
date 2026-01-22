@@ -4,8 +4,8 @@
     >
         <!-- ЗАГОЛОВОК -->
         <h1 class="viewer-header">
-            Тесты <span class="nest-piece">></span> 
-            Проверка <span class="nest-piece">></span> 
+            Tests <span class="nest-piece">></span> 
+            Examination <span class="nest-piece">></span> 
             {{ store.openResultForCheck?.test.title }} <span class="nest-piece">></span> 
             Ученики <span class="nest-piece">></span> 
             {{ store.openResultForCheck?.student.name }}
@@ -24,20 +24,20 @@
                 />
                 
                 <div class="mt-5 mb-2" style="width: 600px;">
-                    <h3 class="light-text mb-2 ml-2">Обязательная оценка результата</h3>
+                    <h3 class="light-text mb-2 ml-2">Mandatory assessment of the result</h3>
                     <Select 
                     class="w-full shadow-3"
                     v-model="isSuccessTest" 
                     :options="testResults" 
                     option-label="label" 
                     option-value="value" 
-                    placeholder="Оценка результата" 
+                    placeholder="Evaluation of the result" 
                     />
                 </div>
 
                 <!-- ACTIONS -->
                 <div class="mt-5 flex" style="width: 600px;">
-                        <Dialog v-model:visible="isShowConfirmDialog" modal :header="'Вы уверены, что хотите завершить проверку теста?'" :style="{ width: '38rem' }">
+                        <Dialog v-model:visible="isShowConfirmDialog" modal :header="'Are you sure you want to complete the test?'" :style="{ width: '38rem' }">
                             <div class="flex justify-content-end gap-2 pr-2">
                                 <Button type="button" label="Отмена" severity="secondary" text raised @click="isShowConfirmDialog = false"></Button>
                                 <Button type="button" label="Да" text raised @click="handlerConfirmCheckingTest"></Button>
@@ -45,7 +45,7 @@
                         </Dialog>
                         <Button
                         class="w-full"
-                        label="Завершить проверку" 
+                        label="Complete the check" 
                         text 
                         raised 
                         icon="pi pi-upload"
@@ -73,7 +73,7 @@ const route = useRoute();
 const router = useRouter();
 
 const isSuccessTest = ref(null);
-const testResults = ref([{ label: 'Тест пройден', value: true }, { label: 'Тест не пройден', value: false }]);
+const testResults = ref([{ label: 'Test passed', value: true }, { label: 'Test failed', value: false }]);
 const isLoadingConfirmChecking: Ref<boolean> = ref<boolean>(false);
 const isShowConfirmDialog = ref(false);
 const draftResultCheck: Ref<LocalAnswer[]> = ref([])
@@ -171,7 +171,7 @@ function handlerUpdateAnswer(updatedAnswer: Answer) {
 
 onMounted(async () => {
     try {
-        // Поулчение результата
+        // Получение результата
         const { data: { result }, meta } = await getResultByIdTchr({ testId: +route.params.testId, resultId: +route.params.resultId })
         store.openResultForCheck = result;
         keyStorageDraft.value = `draft_result_${store.openResultForCheck?.id}_test_${store.openResultForCheck?.testId}_check`;

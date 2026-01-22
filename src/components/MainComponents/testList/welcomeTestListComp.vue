@@ -2,7 +2,7 @@
     <div 
     class="w-full h-full flex flex-column align-items-center gap-3 justify-content-center"
     >
-        <h1 class="light-text">Здесь будут отображаться тесты</h1>
+        <h1 class="light-text">Tests will be displayed here</h1>
         <div class="w-max">
             <ConfirmPopup>
                 <template #container="{ message, acceptCallback, rejectCallback }">
@@ -18,7 +18,7 @@
 
             <Button 
             v-if="store.appRole === 'teacher'"
-            label="Создать" 
+            label="Create" 
             icon="pi pi-plus" 
             text raised 
             iconPos="top" 
@@ -28,7 +28,7 @@
             <Button
             v-if="isExistsDraftTest && store.appRole === 'teacher'"
             class="ml-4"
-            label="Черновик" 
+            label="Draft" 
             icon="pi pi-file-edit" 
             text raised 
             severity="warn"
@@ -57,7 +57,7 @@ function confirmOpenCreate(event: Event) {
         if(isExistsDraftTest.value === true) {
             return confirm.require({
                 target: event.currentTarget as HTMLElement,
-                message: 'У вас есть незавершенный черновик теста, всё равно создать новый?',
+                message: 'Do you have an unfinished draft test, should you create a new one anyway?',
                 icon: 'pi pi-exclamation-triangle',
                 accept: () => {
                     localStorage.removeItem('draft_new_test');

@@ -1,38 +1,38 @@
 <template>
     <aside class="nav-panel w-max h-full py-1 flex flex-column align-items-center">
-        <ul classs="menu w-full">
+        <ul class="menu w-full">
 
             <!-- СТАТИСТИКА -->
             <li 
             class="menu-item" 
             @click="router.push({ name: 'statistics' })" 
-            v-tooltip.right="'Статистика'"
+            v-tooltip.right="'statistics'"
             :class="(route.name === 'statistics')? 'selected' : ''"
             >
                 <i class="pi pi-chart-bar menu-item-icon"></i>
-                <span class="menu-item-label" v-show="expandMenu">Статистика</span>
+                <span class="menu-item-label" v-show="expandMenu">Statistics</span>
             </li>
 
             <!-- ГРУППЫ -->
             <li 
             class="menu-item" 
             @click="router.push({ name: 'groups' })" 
-            v-tooltip.right="'Группы'"
+            v-tooltip.right="'Groups'"
             :class="(route.name === 'groups')? 'selected' : ''"
             >
                 <i class="pi pi-bookmark menu-item-icon"></i>
-                <span class="menu-item-label" v-show="expandMenu">Группы</span>
+                <span class="menu-item-label" v-show="expandMenu">Groups</span>
             </li>
 
             <!-- ТЕСТЫ -->
             <li
             class="menu-item" 
             @click="router.push({ name: 'tests' })" 
-            v-tooltip.right="'Тесты'"
+            v-tooltip.right="'Tests'"
             :class="(route.name === 'tests')? 'selected' : ''"
             >
                 <i class="pi pi-list menu-item-icon"></i>
-                <span class="menu-item-label" v-show="expandMenu">Тесты</span>
+                <span class="menu-item-label" v-show="expandMenu">Tests</span>
             </li>
 
             <!-- УЧЕНИКИ -->
@@ -40,11 +40,11 @@
             v-if="store.appRole === 'teacher'"
             class="menu-item" 
             @click="router.push({ name: 'students' })" 
-            v-tooltip.right="'Ученики'"
+            v-tooltip.right="'Students'"
             :class="(route.name === 'students')? 'selected' : ''"
             >
                 <i class="pi pi-users menu-item-icon"></i>
-                <span class="menu-item-label" v-show="expandMenu">Ученики</span>
+                <span class="menu-item-label" v-show="expandMenu">Students</span>
             </li>
 
         </ul>
@@ -64,6 +64,7 @@ import { useRoute, useRouter } from 'vue-router';
 import { ref } from 'vue';
 import gsap from 'gsap';
 import { useMainStore } from '@/stores/mainStore';
+import StatisticsView from '@/views/MainViews/StatisticsView.vue';
 
 const store = useMainStore();
 const route = useRoute();

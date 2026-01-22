@@ -3,7 +3,7 @@
     class="w-full h-full overflow-auto flex flex-column align-items-stretch" 
     >
         <!-- ЗАГОЛОВОК -->
-        <h1 class="viewer-header">Статистика</h1>
+        <h1 class="viewer-header">Statistics</h1>
 
         <!-- КОНТЕНТНАЯ ЧАСТЬ -->
         <section class="h-full overflow-auto px-5 py-4" style="width: 98%;">
@@ -12,27 +12,27 @@
             <div class="general-info-block w-max flex align-items-start justify-content-start gap-4">
                 <!-- ОБЩЕЕ КОЛ_ВО ТЕСТОВ -->
                 <div class="statistic-block flex align-items-center">
-                    <h1 class="font-medium">Всего тестов:</h1>
-                    <span class="statistic-block-num-value ml-3">NaN</span>
+                    <h1 class="font-medium">Total tests:</h1>
+                    <span class="statistic-block-num-value ml-3">-</span>
                 </div>
 
                 <!-- КОЛ_ВО ВЫПОЛНЕННЫХ ТЕСТОВ -->
                 <div class="statistic-block flex align-items-center">
-                    <h1 class="font-medium">Выполненных тестов:</h1>
-                    <span class="statistic-block-num-value ml-3">NaN</span>
+                    <h1 class="font-medium">Tests performed:</h1>
+                    <span class="statistic-block-num-value ml-3">-</span>
                 </div>
 
                 <!-- КОЛ_ВО ТЕСТОВ КОТОРЫЕ ОЖИДАЮТ ПРОВЕРКИ -->
                 <div class="statistic-block flex align-items-center">
-                    <h1 class="font-medium">Ожидают проверки:</h1>
-                    <span class="statistic-block-num-value ml-3">NaN</span>
+                    <h1 class="font-medium">Awaiting verification:</h1>
+                    <span class="statistic-block-num-value ml-3">-</span>
                 </div>
                 <pieComp />
             </div>
 
             <!-- БЛОК СПИСКА ВЫПОЛНЕННЫХ ПРОВЕРЕННЫХ ТЕСТОВ  -->
             <div class="list-block w-full mt-3">
-                <h1 class="font-medium text-3xl mb-2">Вывести статистику по тесту</h1>
+                <h1 class="font-medium text-3xl mb-2">Display test statistics</h1>
                 <div class="checked-tests-block statistic-block pt-3 pb-2 px-3">
                     <!-- Спиннер загрузки данных -->
                     <ProgressSpinner 
@@ -43,7 +43,9 @@
                     animationDuration=".5s" 
                     aria-label="Custom ProgressSpinner" 
                     />
-                    <h2 v-else-if="!testList.length && !isLoadingListTests" class="light-text text-lg w-max mx-auto mb-2" v-show="!testList.length">Здесь будут отображаться тесты, которые вы выполнили</h2>
+                    <h2 v-else-if="!testList.length && !isLoadingListTests" class="light-text text-lg w-max mx-auto mb-2" v-show="!testList.length">
+                        The tests you have completed will be displayed here
+                    </h2>
                     <testCheckedItemComp
                     v-else-if="testList.length && !isLoadingListTests"
                     v-show="testList.length"
@@ -71,7 +73,7 @@
 
             <!-- БЛОК ОБЩЕЙ СТАТИСТИКИ ЗА КАКОЕ-ТО ВРЕМЯ -->
             <div class="w-full my-4">
-                <h1 class="font-medium text-3xl mb-4">Общая статистика</h1>
+                <h1 class="font-medium text-3xl mb-4">General statistics</h1>
                 <barComp />
             </div>
 

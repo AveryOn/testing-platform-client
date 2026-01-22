@@ -3,17 +3,17 @@
     class="w-full h-full overflow-hidden flex flex-column align-items-stretch" 
     >
         <!-- ЗАГОЛОВОК -->
-        <h1 class="viewer-header">Ученики</h1>
+        <h1 class="viewer-header">Students</h1>
 
         <!-- ДОБАВЛЕНИЕ В ГРУППУ пользователя -->
-        <Dialog v-model:visible="isShowAddInGroup" modal header="Добавить ученика в группу" :style="{ width: '30rem' }">
+        <Dialog v-model:visible="isShowAddInGroup" modal header="Add a student to a group" :style="{ width: '30rem' }">
             <div class="flex items-center gap-4 mb-4">
                 <Select 
                 v-model="selectedGroup" 
                 :options="store.groups" 
                 filter 
                 optionLabel="title" 
-                placeholder="Выбрите группу" 
+                placeholder="Select a group" 
                 class="w-full md:w-56"
                 >
                 </Select>
@@ -24,7 +24,7 @@
                 type="button" 
                 text 
                 raised 
-                label="Подтвердить" 
+                label="Confirm" 
                 @click="handlerAddStudentToGroup"
                 :loading="isLoadingAddGroup"
                 ></Button>
@@ -44,7 +44,7 @@
                 animationDuration=".5s" 
                 aria-label="Custom ProgressSpinner"
                 />
-                <h1 v-show="!isLoadingData" class="light-text">Здесь будет отображаться список учеников</h1>
+                <h1 v-show="!isLoadingData" class="light-text">The list of students will be displayed here</h1>
             </div>
 
             <div v-else class="w-full h-max shadow-3 border-round-lg overflow-hidden">
@@ -55,16 +55,16 @@
                 :selectionMode="'single'"
                 >
                     <Column class="px-5" field="id" header="ID" style="width: 5%;"></Column>
-                    <Column field="name" header="Инициалы" style="width: 20%;"></Column>
-                    <Column field="login" header="Логин" style="width: 20%;"></Column>
-                    <Column field="createdAt" header="Дата регистрации" style="width: 20%;">
+                    <Column field="name" header="Initials" style="width: 20%;"></Column>
+                    <Column field="login" header="Login" style="width: 20%;"></Column>
+                    <Column field="createdAt" header="Date of registration" style="width: 20%;">
                         <template #body="{data}">
                             <span class="px-3">
                                 {{ formattedDateByTemplate(data.createdAt) }}
                             </span>
                         </template>
                     </Column>
-                    <Column field="updatedAt" header="Дата ред. аккаунта"  style="width: 30%;">
+                    <Column field="updatedAt" header="Account edit date"  style="width: 30%;">
                         <template #body="{data}">
                             <span class="px-3">
                                 {{ formattedDateByTemplate(data.updatedAt) }}
@@ -79,7 +79,7 @@
                             text 
                             raised 
                             size="small" 
-                            v-tooltip.bottom="'Добавить в группу'" 
+                            v-tooltip.bottom="'Add to group'" 
                             @click="isShowAddInGroup = true"
                             />
                         </div>

@@ -58,7 +58,7 @@
             <span class="sign-icon mr-1">
                 <i class="pi pi-bookmark" style="font-size: var(--test-item-meta-size);"></i>
             </span> 
-            <span class="meta-count mx-1" v-tooltip.bottom="'группа'">{{ props.testData.group.title }}</span> 
+            <span class="meta-count mx-1" v-tooltip.bottom="'group'">{{ props.testData.group.title }}</span> 
         </span>
         
     </div>

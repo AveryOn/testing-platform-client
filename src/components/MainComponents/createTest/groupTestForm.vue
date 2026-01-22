@@ -1,7 +1,7 @@
 <template>
     <div class="relative h-full overflow-hidden flex flex-column align-items-center justify-content-center py-4">
         <form class="flex flex-column align-items-center" @submit.prevent>
-            <h2 class="light-text mb-4">Выберите группу, к которой будет относится данный тест</h2>
+            <h2 class="light-text mb-4">Select the group to which this test will belong</h2>
             <div class="flex align-items-center gap-2 p-1">
                 <Select 
                 class="input w-20rem" 
@@ -9,11 +9,11 @@
                 :options="store.groups" 
                 optionLabel="title" 
                 size="large" 
-                placeholder="Группа"
+                placeholder="Group"
                 @change="(e) => handlerUpdateGroup(e.value)"
                 >
                     <template #empty>
-                        <p class="light-text font-italic">Групп нет</p>
+                        <p class="light-text font-italic">There are no groups</p>
                         
                     </template>
                     <template #footer>
@@ -32,7 +32,7 @@
                                 <div class="w-max flex flex-column align-items-center gap-1 pt-2">
                                     <span class="error-message" v-show="errorMsgGroupInp">{{ errorMsgGroupInp }}</span>
                                     <div class="w-18rem flex gap-2">
-                                        <InputText class="input" @input="resetErrors" v-model="titleGroup" type="text" size="small" placeholder="Название группы" />
+                                        <InputText class="input" @input="resetErrors" v-model="titleGroup" type="text" size="small" placeholder="Group Title" />
                                         <Button class="mt-auto"icon="pi pi-plus" text raised size="small" aria-label="Save" :loading="isLoadingCreationGroup" @click="handlerCreateGroup" />
                                     </div>
                                 </div>

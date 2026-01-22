@@ -32,7 +32,7 @@ const setChartData = () => {
     const documentStyle = getComputedStyle(document.body);
 
     return {
-        labels: ['Выполнено', 'Ожидают проверки', 'Проверено', 'Не выполнено'],
+        labels: ['Completed', 'Awaiting inspection', 'Verified', 'Not completed'],
         datasets: [
             {
                 data: [5, 2, 3, 10],

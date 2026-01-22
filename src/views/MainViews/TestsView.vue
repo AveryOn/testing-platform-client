@@ -3,18 +3,18 @@
         <!-- ЗАГОЛОВОК -->
         <h1 class="viewer-header">
             <span v-if="store.opennedGroup">{{ store.opennedGroup?.title }} <span class="nest-piece">></span> </span>
-            Тесты
+            Tests
         </h1>
 
         <!-- ДОБАВИТЬ ПОЛЬЗОВАТЕЛЯ В ГРУППУ -->
-        <Dialog v-model:visible="isShowAddNewStudentInGroup" modal header="Добавить ученика в группу" :style="{ width: '30rem' }">
+        <Dialog v-model:visible="isShowAddNewStudentInGroup" modal header="Add a student to a group" :style="{ width: '30rem' }">
             <div class="flex items-center gap-4 mb-4">
                 <Select 
                 v-model="selectedStudent" 
                 :options="store.students" 
                 filter 
                 optionLabel="name" 
-                placeholder="Выбрите ученика" 
+                placeholder="Select the student" 
                 class="w-full md:w-56"
                 >
                 </Select>
@@ -25,7 +25,7 @@
                 type="button" 
                 text 
                 raised 
-                label="Подтвердить" 
+                label="Confirm" 
                 @click="handlerAddStudentToGroup"
                 :loading="isLoadingAddedStudent"
                 ></Button>
@@ -45,7 +45,7 @@
                 text 
                 raised
                 @click="handlerOpenNewTestForm"
-                v-tooltip.right="'создать новый тест'"
+                v-tooltip.right="'create a new test'"
                 ></Button>
                 <!-- ОТКРЫТЬ ЧЕРНОВИК СОЗДАНИЯ ТЕСТА  (КНОПКА) -->
                 <Button
@@ -55,7 +55,7 @@
                 text raised 
                 severity="warn"
                 @click="router.push({ name: 'createTest' })"
-                v-tooltip.right="'черновик'"
+                v-tooltip.right="'draft'"
                 />
             </div>
             <Button 
@@ -64,7 +64,7 @@
             type="button" 
             icon="pi pi-user-plus" 
             text 
-            raised v-tooltip.left="'Добавить в группу ученика'"
+            raised v-tooltip.left="'Add a student to the group'"
             @click="isShowAddNewStudentInGroup = true"
             ></Button>
             <Select 
@@ -72,15 +72,15 @@
             v-model="store.opennedGroup" 
             :options="store.groups" 
             optionLabel="title"
-            placeholder="Выберите группу"
+            placeholder="Select a group"
             @change="(event) => router.push({ name: 'groupTests', params: { groupId: event.value.id } })">
-                <template #empty><span class="light-text font-italic">Групп нет</span></template>
+                <template #empty><span class="light-text font-italic">There are no groups</span></template>
             </Select>
         </div>
 
         <!-- КОНТЕНТНАЯ ЧАСТЬ -->
         <section class="relative h-full overflow-auto px-5 pb-4 pt-3">
-            <!-- Окно значка закгрузки данных -->
+            <!-- Окно значка загрузки данных -->
             <span v-if="isLoadingData" class="w-full h-full flex align-items-center justify-content-center">
                 <ProgressSpinner 
                 class="m-auto"

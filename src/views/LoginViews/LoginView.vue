@@ -2,7 +2,7 @@
     <div id="login-container" class="login-container relative w-full h-full flex flex-column align-items-center justify-content-center">
         <Toast />
         <h1 class="form-title mb-4">
-            Войти
+            Sign In
             <i class="pi pi-sign-in ml-1" style="font-size: 1.3rem; color: var(--basic-color-fg); font-weight: 900"></i>
         </h1>
 
@@ -13,13 +13,13 @@
                     <i class="pi pi-user"></i>
                 </InputGroupAddon>
                 <InputText 
-                placeholder="Логин" 
+                placeholder="Login" 
                 v-model="login"
                 :invalid="isInvalidLogin"
                 @update:model-value="isInvalidLogin = false"
                 />
                 <InputGroupAddon>
-                    <i class="pi pi-question-circle light-text cursor-pointer" v-tooltip.right="`- мин. 3 символа \n - запрещены спецсимволы`"></i>
+                    <i class="pi pi-question-circle light-text cursor-pointer" v-tooltip.right="`- min. 3 characters \n - special characters are prohibited`"></i>
                 </InputGroupAddon>
             </InputGroup>
 
@@ -29,7 +29,7 @@
                     <i class="pi pi-key"></i>
                 </InputGroupAddon>
                 <InputText 
-                placeholder="Пароль" 
+                placeholder="Password" 
                 type="password"
                 v-model="password"
                 :invalid="isInvalidPassword"
@@ -48,7 +48,7 @@
             :loading="isLoadingConfirmData"
             @click="handlerConfirmForm"
             />
-            <p class="mt-3 mr-auto">Нет учетной записи? <a class="link ml-2" @click="handlerOpenLogup">Создайте её!</a></p>
+            <p class="mt-3 mr-auto">Don't have an account? <a class="link ml-2" @click="handlerOpenLogup">Create it!</a></p>
         </form>
     </div>
 </template>
@@ -121,7 +121,7 @@ async function handlerConfirmForm(): Promise<void> {
             }
         }
     } catch (err) {
-        toast.add({ severity: 'error', summary: 'Ошибка', detail: 'Не удалось авторизоваться в системе', life: 3000 });
+        toast.add({ severity: 'error', summary: 'Ошибка', detail: 'Failed to log in to the system', life: 3000 });
         console.error('/src/views/LoginViews/LoginView.vue: handlerConfirmForm => ', err);
         throw err;
     } finally {

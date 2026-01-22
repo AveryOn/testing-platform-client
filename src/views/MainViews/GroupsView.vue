@@ -2,9 +2,9 @@
     <div class="w-full h-full overflow-hidden flex flex-column align-items-stretch">
 
         <!-- ФОРМА ДЛЯ СОЗДАНИЯ НОВОЙ ГРУППЫ -->
-        <Dialog v-model:visible="isShowCreateGroup" modal header="Создать группу" :style="{ width: '25rem' }">
+        <Dialog v-model:visible="isShowCreateGroup" modal header="Create a group" :style="{ width: '25rem' }">
             <div class="relative flex items-center gap-4 mb-4">
-                <label for="title" class="font-medium w-24">Название</label>
+                <label for="title" class="font-medium w-24">Title</label>
                 <InputText 
                 class="flex-auto" 
                 id="title" 
@@ -16,20 +16,20 @@
                 <span class="error-msg" :class="errorMsgInp.length? 'visible' : ''">{{ errorMsgInp }}</span>
             </div>
             <div class="flex justify-content-end gap-2">
-                <Button type="button" label="Отмена" severity="secondary" text raised @click="isShowCreateGroup = false"></Button>
-                <Button type="button" label="Создать" text raised @click="handlerCreateGroup" :loading="isLoadingCreationGroup"></Button>
+                <Button type="button" label="Cancel" severity="secondary" text raised @click="isShowCreateGroup = false"></Button>
+                <Button type="button" label="Create" text raised @click="handlerCreateGroup" :loading="isLoadingCreationGroup"></Button>
             </div>
         </Dialog>
 
         <!-- ЗАГОЛОВОК -->
-        <h1 class="viewer-header">Группы</h1>
+        <h1 class="viewer-header">Groups</h1>
         <Button 
         v-if="store.appRole === 'teacher' && store.groups.length"
         class="ml-auto mt-2 mr-4" 
         @click="isShowCreateGroup = true" 
         text 
         raised 
-        label="Создать" 
+        label="Create" 
         icon="pi pi-plus" 
         />
 
@@ -39,10 +39,10 @@
             <!-- ОКНО ПРИВЕТСТВИЯ -->
             <div v-if="!store.groups.length" class="w-full h-full flex flex-column align-items-center gap-3 justify-content-center">
   
-                <h1 class="light-text">Здесь будут отображаться группы</h1>
+                <h1 class="light-text">Groups will be displayed here</h1>
                 <div v-if="store.appRole === 'teacher'" class="w-max">
                     <Button 
-                    label="Создать" 
+                    label="Create" 
                     icon="pi pi-plus" 
                     text raised
                     iconPos="top"

@@ -2,7 +2,7 @@
     <div id="logup-container" class="relative w-full h-full flex flex-column align-items-center justify-content-center">
         <Toast />
         <h1 class="form-title mb-5">
-            Создать аккаунт
+            Create an account
             <i class="pi pi-user-plus ml-1" style="font-size: 1.6rem; color: var(--basic-color-fg); font-weight: 900"></i>
         </h1>
 
@@ -11,37 +11,37 @@
             <IconField class="w-full mb-4">
                 <InputText 
                 class="input w-full" 
-                placeholder="Ваше имя" 
+                placeholder="Your name" 
                 v-model="formData.name"
                 :invalid="isInvalidName"
                 @update:model-value="isInvalidName = false"
                 />
-                <InputIcon class="pi pi-asterisk" style="color: var(--required-color); font-size: small" v-tooltip.bottom="'Обязательное поле'"/>
+                <InputIcon class="pi pi-asterisk" style="color: var(--required-color); font-size: small" v-tooltip.bottom="'Required field'"/>
             </IconField>
 
             <!-- Login -->
             <IconField class="w-full mb-4">
                 <InputText 
                 class="input w-full" 
-                placeholder="Логин" 
+                placeholder="Username" 
                 v-model="formData.login"
                 :invalid="isInvalidLogin" 
                 @update:model-value="isInvalidLogin = false"
                 />
-                <InputIcon class="pi pi-asterisk" style="color: var(--required-color); font-size: small" v-tooltip.bottom="'Обязательное поле'"/>
+                <InputIcon class="pi pi-asterisk" style="color: var(--required-color); font-size: small" v-tooltip.bottom="'Required field'"/>
             </IconField>
 
             <!-- Password -->
             <IconField class="w-full mb-4">
                 <InputText 
                 class="input w-full" 
-                placeholder="Придумайте пароль" 
+                placeholder="Create a password" 
                 :type="!isShowPassword? 'password' : 'text'" 
                 v-model="formData.password"
                 :invalid="isInvalidPassword"
                 @update:model-value="isInvalidPassword = false"
                 />
-                <InputIcon v-if="!formData.password" class="pi pi-asterisk" style="color: var(--required-color); font-size: small" v-tooltip.bottom="'Обязательное поле'"/>
+                <InputIcon v-if="!formData.password" class="pi pi-asterisk" style="color: var(--required-color); font-size: small" v-tooltip.bottom="'Required field'"/>
                 <InputIcon v-else @click="isShowPassword = !isShowPassword" class="input-icon-eye" :class="(!isShowPassword)? 'pi pi-eye-slash' : 'pi pi-eye'"/>
             </IconField>
 
@@ -49,13 +49,13 @@
             <IconField class="w-full mb-4">
                 <InputText 
                 class="input w-full" 
-                placeholder="Повторите пароль" 
+                placeholder="Repeat password" 
                 :type="!isShowPassword? 'password' : 'text'" 
                 v-model="repeatPassword"
                 :invalid="isInvalidRepeatPassword"
                 @update:model-value="isInvalidRepeatPassword = false"
                 />
-                <InputIcon v-if="!repeatPassword" class="pi pi-asterisk" style="color: var(--required-color); font-size: small" v-tooltip.bottom="'Обязательное поле'"/>
+                <InputIcon v-if="!repeatPassword" class="pi pi-asterisk" style="color: var(--required-color); font-size: small" v-tooltip.bottom="'Required field'"/>
                 <InputIcon v-else @click="isShowPassword = !isShowPassword" class="input-icon-eye" :class="(!isShowPassword)? 'pi pi-eye-slash' : 'pi pi-eye'"/>
             </IconField>
 
@@ -67,7 +67,7 @@
             @click="handlerConfirmForm"
             :loading="isLoadingConfirmData"
             />
-            <p class="mt-3 mr-auto">Уже есть учетная запись? <a class="link ml-2" @click="handlerOpenLogin">Войти!</a></p>
+            <p class="mt-3 mr-auto">Already have an account? <a class="link ml-2" @click="handlerOpenLogin">Sign In!</a></p>
         </form>
     </div>
 </template>
@@ -161,7 +161,7 @@ async function handlerConfirmForm(): Promise<void> {
             router.push({ name: 'login' }).then(() => window.location.reload());
         }
     } catch (err) {
-        toast.add({ severity: 'error', summary: 'Ошибка', detail: 'Не удалось создать аккаунт', life: 3000 });
+        toast.add({ severity: 'error', summary: 'Ошибка', detail: 'Failed to create account', life: 3000 });
         console.error('/src/views/LoginViews/LogupView.vue: handlerConfirmForm => ', err);
         throw err;
     } finally {

@@ -1,13 +1,13 @@
 <template>
     <div class="relative h-full overflow-hidden flex flex-column align-items-center justify-content-center py-4">
         <form class="flex flex-column align-items-center" @submit.prevent>
-            <h2 class="light-text mb-4">Краткое описание теста (о чем он?)</h2>
+            <h2 class="light-text mb-4">Brief description of the test (what is it about?)</h2>
             <div class="flex align-items-center gap-2 p-1">
                 <Textarea 
                 class="input" 
                 rows="5" 
                 cols="50" 
-                placeholder="Описание" 
+                placeholder="Description" 
                 style="resize: vertical"
                 v-model="testSummary"
                 @update:model-value="(value) => handlerUpdateTestSummary(value)"

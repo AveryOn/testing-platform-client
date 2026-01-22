@@ -5,19 +5,19 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
+import { ref } from "vue";
 
 const chartData = ref({
     labels: [1, 2, 3, 4, 5, 6, ],
     datasets: [
         {
-            label: 'Успешные тесты (%)',
+            label: 'Successful tests (%)',
             backgroundColor: '#aaff60',
             borderColor: '#92f938',
             data: [54, 17, 28, 48, 24, 51, ]
         },
         {
-            label: 'Проваленные тесты (%)',
+            label: 'Failed tests (%)',
             backgroundColor: '#ff6060',
             borderColor: '#ff4848',
             data: [18, 38, 22, 34, 25, 29, ],
@@ -39,7 +39,7 @@ const chartOptions = ref({
         x: {
             title: {
                 display: true,
-                text: 'Временная шкала (Дни)'
+                text: 'Timeline (Days)'
             },
             ticks: {
                 color: 'gray',
@@ -56,7 +56,7 @@ const chartOptions = ref({
         y: {
             title: {
                 display: true,
-                text: 'Проценты %'
+                text: 'Percentage %'
             },
             ticks: {
                 color: 'gray'
